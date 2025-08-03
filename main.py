@@ -26,7 +26,8 @@ app.add_middleware(
         "http://localhost:5173", 
         "http://127.0.0.1:5173",
         "http://localhost:3000",
-        "https://your-vercel-app.vercel.app"  # Replace with your actual Vercel URL
+        "https://*.vercel.app",  # Allow all Vercel subdomains
+        "https://web-production-0b3e.up.railway.app"  # Your Railway backend
     ],
     allow_credentials=True,
     allow_methods=["*"],

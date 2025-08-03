@@ -1,72 +1,56 @@
 # Deployment Guide
 
-## Backend Deployment (Python FastAPI)
+## ✅ Backend Deployed Successfully!
+**Your backend URL**: https://web-production-0b3e.up.railway.app/
 
-### Option 1: Railway (Recommended)
-1. Go to [railway.app](https://railway.app)
-2. Sign up with GitHub
-3. Create new project → Deploy from GitHub repo
-4. Select your repository
-5. Add environment variables:
-   - `GOOGLE_API_KEY=your_google_api_key`
-   - `MOVIE_API_KEY=your_omdb_api_key`
-6. Railway will automatically detect and deploy your FastAPI app
+## 🚨 IMPORTANT: Add Environment Variables to Railway
 
-### Option 2: Render
-1. Go to [render.com](https://render.com)
-2. Sign up with GitHub
-3. Create new Web Service
-4. Connect your GitHub repository
-5. Configure:
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-6. Add environment variables in Render dashboard
-
-### Option 3: Heroku
-1. Install Heroku CLI
-2. Create Heroku app: `heroku create your-app-name`
-3. Add environment variables: 
-   ```bash
-   heroku config:set GOOGLE_API_KEY=your_key
-   heroku config:set MOVIE_API_KEY=your_key
+1. Go to [railway.app](https://railway.app) and open your project
+2. Click on your service
+3. Go to the **Variables** tab
+4. Add these environment variables:
    ```
-4. Deploy: `git push heroku main`
+   GOOGLE_API_KEY=AIzaSyDmuXQLUPpSWalwptnGu8thkZcIu1UmNDg
+   MOVIE_API_KEY=80669d80
+   ```
+5. Click **Deploy** to restart with the new variables
 
-## Frontend Deployment (Vercel)
+## Frontend Deployment (Next Step)
 
-### Prepare Frontend for Deployment:
-1. Update the API_BASE_URL in your frontend code to point to your deployed backend
-2. Build your project: `npm run build`
-3. Deploy to Vercel:
-   - Connect GitHub repo to Vercel
-   - Vercel will auto-detect Vite and deploy
+### Deploy to Vercel:
+1. Go to [vercel.com](https://vercel.com)
+2. Import your GitHub repository
+3. Vercel will auto-detect Vite configuration
+4. Deploy (it will automatically use the Railway backend URL)
 
-### Update CORS in Backend:
-After deploying frontend, update the CORS origins in `main.py` with your Vercel URL:
-```python
-allow_origins=[
-    "https://your-app-name.vercel.app"
-]
+### Manual Deployment:
+```bash
+cd app/frontend
+npm run build
+# Upload the dist/ folder to any static hosting
 ```
 
-## Environment Variables Needed:
-- `GOOGLE_API_KEY`: Your Google Gemini AI API key
-- `MOVIE_API_KEY`: Your OMDB API key (80669d80)
-- `PORT`: Will be set automatically by hosting platform
+## Testing Your Deployment
 
-## Post-Deployment Steps:
-1. Test API endpoints
-2. Update frontend API URL
-3. Test full application flow
-4. Monitor logs for any issues
+### Test Backend:
+```bash
+curl https://web-production-0b3e.up.railway.app/
+```
 
-## Costs:
-- Railway: Free tier, then $5/month
-- Render: Free tier (sleeps), $7/month for always-on
-- Vercel: Free for personal projects
-- Heroku: $7/month minimum
+### Test Movie Endpoint (after adding env vars):
+```bash
+curl -X POST https://web-production-0b3e.up.railway.app/movie \
+  -H "Content-Type: application/json" \
+  -d '{"user_prompt": "Should I watch Inception?"}'
+```
+
+## Current Status:
+- ✅ Backend deployed to Railway
+- ✅ Frontend code updated with production URL  
+- ⏳ Need to add environment variables to Railway
+- ⏳ Need to deploy frontend to Vercel
 
 ## Notes:
-- Your current API keys are already configured in the code
-- Make sure to keep your API keys secure
-- Test thoroughly before going live
+- Backend is working but needs API keys
+- Frontend is ready for deployment
+- CORS is configured for Vercel domains

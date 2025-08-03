@@ -1,9 +1,9 @@
 import './style.css'
 import { marked } from 'marked'
 
-// API URL - Update this after deploying your backend
+// API URL - Production backend on Railway
 const API_BASE_URL = import.meta.env.PROD 
-  ? 'https://your-backend-url.railway.app'  // Replace with your actual backend URL
+  ? 'https://web-production-0b3e.up.railway.app'
   : 'http://localhost:8000';
 
 class MovieReviewApp {
