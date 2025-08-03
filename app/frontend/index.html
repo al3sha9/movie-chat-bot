@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movavi - Movie Review Assistant</title>
+  </head>
+  <body>
+    
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <span class="nav-logo">🎬</span>
+          <span class="nav-title">Movavi</span>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" data-page="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" data-page="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://github.com" class="nav-link" target="_blank">GitHub</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-ap">
+  <div class="blue-radial-glow"></div>
+    <div id="app">
+      <div id="homePage" class="page active">
+       
+        
+        <main>
+          <div id="movieInfo" class="movie-info">
+            <!-- Movie information will be dynamically inserted here -->
+          </div>
+          <div class="chat-container">
+            <div id="messages" class="messages"></div>
+            
+            <div class="input-container">
+              <input 
+                type="text" 
+                id="movieInput" 
+                placeholder="Ask about any movie... (e.g., 'Should I watch Inception?')"
+                maxlength="500"
+              />
+              <button id="askButton">Ask</button>
+            </div>
+          </div>
+          
+          <div class="examples">
+            <h3>Try asking:</h3>
+            <div class="example-buttons">
+              <button class="example-btn" data-prompt="Should I watch The Dark Knight?">Should I watch The Dark Knight?</button>
+              <button class="example-btn" data-prompt="Is Avatar worth watching?">Is Avatar worth watching?</button>
+              <button class="example-btn" data-prompt="Tell me about Dune 2021">Tell me about Dune 2021</button>
+            </div>
+          </div>
+         
+        </main>
+      </div>
+
+      <div id="aboutPage" class="page">
+        <main>
+          <div class="about-container">
+            <h1>About Movavi</h1>
+            <div class="about-content">
+              <div class="about-section">
+                <h2>🎬 What We Do</h2>
+                <p>Movavi is an AI-powered movie review assistant that helps you discover your next favorite film. Using advanced artificial intelligence, we provide personalized movie recommendations, detailed reviews, and comprehensive movie information.</p>
+              </div>
+              
+              <div class="about-section">
+                <h2>🤖 How It Works</h2>
+                <p>Our AI assistant analyzes your movie preferences and provides tailored recommendations. Simply ask about any movie, and our system will:</p>
+                <ul>
+                  <li>Fetch real-time movie data from OMDB API</li>
+                  <li>Generate detailed AI-powered reviews using Google Gemini</li>
+                  <li>Display movie posters and information</li>
+                  <li>Provide personalized recommendations</li>
+                </ul>
+              </div>
+              
+              <div class="about-section">
+                <h2>🚀 Technology Stack</h2>
+                <div class="tech-grid">
+                  <div class="tech-item">
+                    <h3>Frontend</h3>
+                    <p>Vite + Vanilla JavaScript</p>
+                  </div>
+                  <div class="tech-item">
+                    <h3>Backend</h3>
+                    <p>FastAPI + Python</p>
+                  </div>
+                  <div class="tech-item">
+                    <h3>AI</h3>
+                    <p>Google Gemini AI</p>
+                  </div>
+                  <div class="tech-item">
+                    <h3>Movie Data</h3>
+                    <p>OMDB API</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="about-section">
+                <h2>✨ Features</h2>
+                <div class="features-grid">
+                  <div class="feature-item">
+                    <span class="feature-icon">🎭</span>
+                    <h3>AI Reviews</h3>
+                    <p>Get detailed, unbiased movie reviews powered by advanced AI</p>
+                  </div>
+                  <div class="feature-item">
+                    <span class="feature-icon">🖼️</span>
+                    <h3>Dynamic Backgrounds</h3>
+                    <p>Movie posters become beautiful background images</p>
+                  </div>
+                  <div class="feature-item">
+                    <span class="feature-icon">📱</span>
+                    <h3>Responsive Design</h3>
+                    <p>Perfect experience on desktop, tablet, and mobile</p>
+                  </div>
+                  <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Real-time Data</h3>
+                    <p>Up-to-date movie information and ratings</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      
+     
+    </div>
+    </div>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
