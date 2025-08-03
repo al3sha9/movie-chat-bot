@@ -9,10 +9,7 @@
 2. Click on your service
 3. Go to the **Variables** tab
 4. Add these environment variables:
-   ```
-   GOOGLE_API_KEY=AIzaSyDmuXQLUPpSWalwptnGu8thkZcIu1UmNDg
-   MOVIE_API_KEY=80669d80
-   ```
+  
 5. Click **Deploy** to restart with the new variables
 
 ## Frontend Deployment (Next Step)
